@@ -1,0 +1,5 @@
+#!/bin/bash
+chmod 777 script_quatro
+echo "Testando a mudança de permissões no próprio arquivo..."
+stat script_quatro
+ls -l script_quatro

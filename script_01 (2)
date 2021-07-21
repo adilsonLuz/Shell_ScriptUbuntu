@@ -1,0 +1,15 @@
+#script_um
+#!/bin/bash
+# Shell Script no. 1 da aula de 25/09
+echo "Usando o interpretador de comandos bash..."
+echo "Meu local atual no sistema de arquivos e diretórios: "
+pwd
+echo "Meu nome de usuário: "
+whoami
+echo "Listando meu diretório de usuário: "
+cd /home/gerson
+ls -l
+echo "Indo para o diretório raiz: "
+cd ..
+cd ..
+pwd

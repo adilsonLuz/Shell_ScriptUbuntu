@@ -1,0 +1,10 @@
+#!/bin/bash
+clear
+echo "Digite um número qualquer: "
+read num;
+if [ "$num" -gt 100 ];
+then
+	echo "O número digitado é maior do que 100"
+else
+	echo "O número digitado não é maior do que 100"
+fi

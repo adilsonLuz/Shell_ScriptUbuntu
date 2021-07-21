@@ -1,0 +1,8 @@
+#!/bin/bash
+univ="Fatec Santana de Parnaiba"
+semestre=3
+site=www.google.com
+echo "Eu estudo na $univ"
+echo "Eu estou no $semestre o. semestre"
+echo "Site que eu mais uso: $site"
+echo "Identificador da variavel de nome da universidade: \$univ"

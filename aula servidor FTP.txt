@@ -1,0 +1,55 @@
+Para instalar servidor FTP com o uso do proftpd:
+
+1) Instalar ferramentas de rede:
+
+apt install net-tools
+
+2) Ver se já existe servidor ftp instalado: 
+
+netstat -pln | grep 21
+
+3) Instalar o proftpd:
+
+apt-get update
+apt-get install proftpd
+apt autoremove (caso queira apagar pacotes desnecessários)
+
+4) Configurar como o proftpd funcionará no servidor, por meio do arquivo de configurações:
+
+nano /etc/proftpd/proftpd.conf
+
+Modifique o arquivo da seguinte maneira:
+
+Procure "# DefaultRoot" --> remova o caractere # (isso fará com que cada usuário fique preso à sua home,
+sem poder acessar pastas de outros usuários;
+
+Procure "UseIPv6" --> mude o valor de "On" para "Off" (caso não utilize IPV6)
+
+Procure por "# PassivePorts", remova o caractere # e altere os valores para "60000 60005" (portas passivas do servidor, ou seja, permitem passar pelo firewall)
+
+5) No final do arquivo de configurações, acrescente o seguinte trecho:
+
+RootLogin off
+RequireValidShell off
+<Limit LOGIN>
+    DenyGroup !userftp
+</Limit>
+<IfModule mod_facts.c>
+    FactsAdvertise off
+</IfModule>
+
+Com estes comandos, o login para o usuário root fica desabilitado; além disso,usuários que não pertençam ao grupo "userftp" não poderão logar.
+
+6) Criar o grupo de usuários que podem acessar o servidor FTP:
+
+addgroup userftp
+(esse é o grupo de usuários que podem acessar o ftp)
+
+adduser user123 -shell /bin/false -home /home/user123
+(cria um usuário e seu respectivo diretório pessoal - é importante que este usuário não seja root)
+
+adduser user123 userftp
+(adiciona o usuário user123 no grupo userftp)
+
+service proftpd restart
+(reinicia o serviço, recarregando as configurações)

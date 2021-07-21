@@ -1,0 +1,25 @@
+#!/bin/bash
+clear
+echo "Digite medida do lado a: "
+read a;
+echo "Digite medida do lado b: "
+read b;
+echo "Digite medida do lado c: "
+read c;
+
+ab=$(("$a"+"$b"))
+ac=$(("$a"+"$c"))
+bc=$(("$c"+"$b"))
+
+if [ "$c" -ge "$ab" ] || [ "$b" -ge "$ac" ] || [ "$a" -ge "$bc" ];
+then
+	echo "Estas medidas não podem pertencer aos lados de um triângulo"
+elif [ "$a" -eq "$b" ] && [ "$b" -eq "$c" ]
+	then
+		echo "Triângulo equilátero"
+	elif [ "$a" -eq "$b" ] || [ "$b" -eq "$c" ] || [ "$a" -eq "$c" ]	
+		then
+			echo "Triângulo isósceles"
+		else
+			echo "Triângulo escaleno"
+fi

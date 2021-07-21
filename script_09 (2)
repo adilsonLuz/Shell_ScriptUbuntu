@@ -1,0 +1,31 @@
+#!/bin/bash
+clear
+select comando in "ls -l" "df -h" "stat" "pwd" "whoami"
+do
+	case $comando in
+		"ls -l") 	
+			var=$(ls -l)
+		 	echo "$var"
+			;;
+		"df -h") 	
+			var=$(df -h)
+		 	echo "$var"
+			;;
+		"stat") 	
+			var=$(stat)
+		 	echo "$var"
+			;;
+		"pwd") 	
+			var=$(pwd)
+		 	echo "$var"
+			;;
+		"whoami") 	
+			var=$(whoami)
+		 	echo "$var"
+			;;
+		*)	
+			echo "opção incorreta"
+			;;
+	esac
+	break
+done

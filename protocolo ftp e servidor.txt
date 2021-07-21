@@ -1,0 +1,18 @@
+Servidor e protocolo FTP
+
+Utiliza um protocolo de transferência de arquivos entre computadores (File Transfer Protocol) para que seja possível acessar arquivos que estão disponíveis em uma unidade de armazenamento local ou remota (disco rígido ou servidor de arquivos). 
+
+Pode-se considerar como possibilidades de acessso aos arquivos navegadores, clientes ftp, comandos específicos nos módulos ftp de Sistemas Operacionais como GNU/Linux.
+
+FTP = protocolo de transferência de arquivos (via de regra, é visto como um protocolo de rede - de transporte).
+
+servidor FTP = é um programa para prover a gestão/gerenciamento da transferência de arquivos entre unidades (máquinas) usando protocolo FTP.
+
+-> Protocolo FTP (RFC 959) não depende de hardware: transferência de arquivos em redes está relacionada ao acesso, de acordo com padrões predefinidos, ao sistema de arquivos remoto. O protocolo FTP tem por base o TCP em uma versão que é até anterior ao TCP/IP.
+
+-> Deve-se considerar, na transferência de arquivos, duas figuras essenciais, quais sejam a do cliente e a do servidor. Em termos técnicos, para obter a transferência de arquivos, é necessário obter uma conexão que geralmente é feita a partir da porta 21 do lado servidor. A conexão fica disponível (aberta) durante a sessão na qual a transferência ocorre (controle); é necessária uma outra conexão (dados), geralmente na porta 20 (servidor) e em outra porta no lado cliente.
+
+-> Controle: identificações, comandos (administrar a sessão de transferência de arquivos).
+
+-> Dados: transferência em si.
+

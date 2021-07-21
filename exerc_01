@@ -1,0 +1,13 @@
+#!/bin/bash
+clear
+echo "Digite um número inteiro: "
+read num1;
+
+num2=$(("$num1"%2))
+
+if [ "$num2" == 0 ];
+then
+	echo "Este número é par"
+else
+	echo "Este número é ímpar"
+fi

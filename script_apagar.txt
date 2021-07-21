@@ -1,0 +1,49 @@
+#!/bin/bash
+#
+#
+resp=s
+nao1=n
+nao2=N
+apag1=s
+apag2=S
+#
+while [ "$resp" != "$nao1" ] && [ "$resp" != "$nao2" ]
+do
+clear
+	echo "Digite qual diretorio deseja procurar um arquivo: "
+#exibindo todos os diretorios
+ls -d */
+#guardando nome do diretorio em uma vaviavel
+read dire;
+#acessando diretorio escolhido
+cd dire*
+	echo "Você está no diretório: "
+#mostrando o path atual
+pwd
+	echo "Os arquivos iniciados por quais caracteres deseja selecionar?"
+#lendo as iniciais do arquivo
+read name;
+#listando todos arquivos com as iniciais listadas
+find . -name "$name*"
+	echo "Qual dos arquivos deseja apagar?"
+#lendo o nome do arquivo escolhido
+read remov;
+	echo "Tem certeza que deseja remover permanentemente o arquivo '$remov' do path:"
+pwd
+	echo "(S/N)"
+read resp1;
+#condição para apagar ou não
+if [ "$resp1" == "$nao1" ] || [ "$resp1" == "$nao2" ];
+then
+	echo "Arquivo não removido."
+elif [ "$resp1" == "$apag1" ] || [ "$resp1" == "$apag2" ];
+then
+	rm $remov
+	echo "Arquivo removido com sucesso!!!"
+else
+	echo "Digite 'S' ou 'N'"
+fi
+cd ~
+	echo "Deseja selecionar outro arquivo?"
+read resp;
+done

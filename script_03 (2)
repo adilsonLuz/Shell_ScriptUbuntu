@@ -1,0 +1,10 @@
+#!/bin/bash
+clear
+entradas=$(ls -l)
+informa=$(df -h)
+echo "$entradas"
+echo ""
+echo "$informa"
+echo ""
+chmod 755 /home/gerson/qualquer
+cat qualquer
